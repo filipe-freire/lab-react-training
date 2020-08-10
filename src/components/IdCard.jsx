@@ -4,7 +4,9 @@ import './IdCard.css';
 const IdCard = ({ lastName, firstName, gender, height, birth, picture }) => {
   return (
     <div className="border">
-      <img src={picture} alt="" />
+      <div style={{ maxWidth: '400px' }}>
+        <img src={picture} alt="" />
+      </div>
       <div className="flex-col">
         <p>
           <span>First name</span>: {firstName}
