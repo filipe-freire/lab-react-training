@@ -5,7 +5,7 @@ const IdCard = ({ lastName, firstName, gender, height, birth, picture }) => {
   return (
     <div className="border">
       <div style={{ maxWidth: '400px' }}>
-        <img src={picture} alt="" />
+        <img src={picture} alt="User profile" />
       </div>
       <div className="flex-col">
         <p>
@@ -18,10 +18,10 @@ const IdCard = ({ lastName, firstName, gender, height, birth, picture }) => {
           <span>Gender:</span> {gender}
         </p>
         <p>
-          <span>Height:</span> {height}
+          <span>Height:</span> {height / 100}m
         </p>
         <p>
-          <span>Birth:</span> {birth.toString()}
+          <span>Birth:</span> {birth.toDateString()}
         </p>
       </div>
     </div>

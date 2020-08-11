@@ -6,9 +6,11 @@ const BoxColor = ({ r, g, b }) => {
   }
 
   const hex = rgbToHex(r, g, b);
+  const rgbColor = `rgb(${r}, ${g}, ${b})`;
+  const textColor = r + g + b > (255 * 3) / 2 ? 'black' : 'white';
 
   return (
-    <div style={{ backgroundColor: `rgb(${r}, ${g}, ${b})` }}>
+    <div style={{ backgroundColor: rgbColor, color: textColor }}>
       <p>
         rgb({r}, {g}, {b})
       </p>

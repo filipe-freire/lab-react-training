@@ -1,5 +1,10 @@
 import React from 'react';
 import './CreditCard.css';
+
+const censoredCreditCardNumber = (number) => {
+  return `**** **** **** ${number.substring(12, 16)}`;
+};
+
 const CreditCard = ({
   type,
   number,
@@ -27,12 +32,13 @@ const CreditCard = ({
       </div>
       <div className="number">
         {' '}
-        <span>**** **** **** {number.slice(12, 16)}</span>
+        <span>{censoredCreditCardNumber(number)}</span>
       </div>
       <div className="expiration-date">
         <span className="card-date">
-          Expires {expirationMonth}/{expirationYear}{' '}
-          <span className="card-name">{bank}</span>
+          Expires{' '}
+          {expirationMonth < 10 ? '0' + expirationMonth : expirationMonth}/
+          {expirationYear % 1000} <span className="card-name">{bank}</span>
         </span>
         <p className="card-owner"> {owner} </p>
       </div>
