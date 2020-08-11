@@ -22,7 +22,7 @@ class ClickablePicture extends React.Component {
         src={this.state.value ? this.props.imgClicked : this.props.img}
         alt=""
         onClick={this.handleLikeButtonClick}
-        style={{ width: '100px' }}
+        style={{ width: '100px', display: 'block', margin: '0 auto' }}
       ></img>
     );
   }
