@@ -4,7 +4,7 @@ class Dice extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: false,
+      rolling: false,
       counter: 1,
       imgSrc: `./img/dice3.png`,
     };
@@ -18,17 +18,20 @@ class Dice extends React.Component {
     this.setState(() => {
       return {
         imgSrc: `./img/dice-empty.png`,
+        rolling: true,
       };
     });
-    setTimeout(() => {
-      this.setState(() => {
-        return {
-          value: !this.state.value,
-          imgSrc: `./img/dice${this.state.counter}.png`,
-          counter: this.generateRandomNumber(1, 6),
-        };
-      });
-    }, 1000);
+    if (!this.state.rolling) {
+      setTimeout(() => {
+        this.setState(() => {
+          return {
+            rolling: !this.state.rolling,
+            imgSrc: `./img/dice${this.state.counter}.png`,
+            counter: this.generateRandomNumber(1, 6),
+          };
+        });
+      }, 1000);
+    }
   };
 
   render() {
